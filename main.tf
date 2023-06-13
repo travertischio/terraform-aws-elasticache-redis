@@ -41,7 +41,7 @@ resource "random_password" "auth_token" {
 }
 
 module "aws_security_group" {
-  source  = "cloudposse/security-group/aws"
+  source  = "github.com/cloudposse/security-group/aws"
   version = "1.0.1"
 
   enabled = local.create_security_group
@@ -225,7 +225,7 @@ resource "aws_cloudwatch_metric_alarm" "cache_memory" {
 }
 
 module "dns" {
-  source  = "cloudposse/route53-cluster-hostname/aws"
+  source  = "github.com/cloudposse/route53-cluster-hostname/aws"
   version = "0.12.2"
 
   enabled  = module.this.enabled && length(var.zone_id) > 0 ? true : false
